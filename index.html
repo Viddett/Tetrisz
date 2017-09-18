@@ -42,18 +42,18 @@
     function controlBlock(){
         
         if(keyFlag){
-        if(cursors.left.isDown && block.x >= 10){
-            block.x -= 30;
-            keyFlag = false;
-        }
-        if(cursors.right.isDown && block.x <= 260){
-            block.x += 30;
-            keyFlag = false;
-        }
-        if(cursors.down.isDown){
-            block.body.velocity.set(0, 100000);
-            keyFlag = false;
-        }
+			if(cursors.left.isDown && block.x >= 10){
+				block.x -= 30;
+				keyFlag = false;
+			}
+			if(cursors.right.isDown && block.x <= 260){
+				block.x += 30;
+				keyFlag = false;
+			}
+			if(cursors.down.isDown){
+				block.body.velocity.set(0, 100000);
+				keyFlag = false;
+			}
         }
 
         if (!cursors.left.isDown && !cursors.right.isDown && !cursors.down.isDown){keyFlag = true;}
