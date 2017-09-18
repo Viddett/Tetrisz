@@ -15,6 +15,7 @@
     var velocityY = 50;
     var cursors;
     var keyFlag = true;
+    var gameSpeed = 10000;
 
     function preload(){
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -30,13 +31,19 @@
         block.anchor.set(0);
         game.physics.enable(block, Phaser.Physics.ARCADE);
         block.body.collideWorldBounds = true;
-        block.body.velocity.set(0, velocityY);
         cursors = game.input.keyboard.createCursorKeys()
     }
 
     function update(){
         //spawnBlock();
         controlBlock();
+
+        window.setInterval(blockDown, gameSpeed);
+    }
+
+    function blockDown(){
+        block.y += 30;
+        
     }
 
     function controlBlock(){
