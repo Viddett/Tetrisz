@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Tetris, in construction...</title>
+    <style>* { padding: 0; margin: 0;}</style>
+    <script src="js/phaser.min.js"></script>
+</head>
+<body>
+<script>
+    var game = new Phaser.Game(300, 660, Phaser.AUTO, null, {preload: preload, create: create, update: update});
+    // Tetrismap 10x22 celler, två högsta gömda
+
+    var block;
+    var velocityY = 50;
+    var cursors;
+    var keyFlag = true;
+
+    function preload(){
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.pageAlignHorizontally = true;
+        game.scale.pageAlignVertically = true;
+        game.stage.backgroundColor = '#f2f2f2';
+        game.load.image('block', 'img/grey.png');
+    }
+
+    function create(){
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        block = game.add.sprite(150, 10, 'block');
+        block.anchor.set(0);
+        game.physics.enable(block, Phaser.Physics.ARCADE);
+        block.body.collideWorldBounds = true;
+        block.body.velocity.set(0, velocityY);
+        cursors = game.input.keyboard.createCursorKeys()
+    }
+
+    function update(){
+        //spawnBlock();
+        controlBlock();
+    }
+
+    function controlBlock(){
+        
+        if(keyFlag){
+        if(cursors.left.isDown && block.x >= 10){
+            block.x -= 30;
+            keyFlag = false;
+        }
+        if(cursors.right.isDown && block.x <= 260){
+            block.x += 30;
+            keyFlag = false;
+        }
+        if(cursors.down.isDown){
+            block.body.velocity.set(0, 100000);
+            keyFlag = false;
+        }
+        }
+
+        if (!cursors.left.isDown && !cursors.right.isDown && !cursors.down.isDown){keyFlag = true;}
+        
+    }
+
+    function spawnBlock(){
+
+    }
+
+
+
+</script>
+</body>
+</html>
