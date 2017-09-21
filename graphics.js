@@ -1,10 +1,15 @@
+/* Handles the graphics for the tetris-game, to use: insert a 'canvas' 
+in the HTML file with an ID and use the createGraphics()
+*/
+
+//Constants
 const numberofBlocksInX = 10;
 const numberOfBlocksInY = 22;
 const playFieldHeightPrecentage = 75;
-var blockWidht = 40;        //Pixels
+
+//Variables
+var blockWidht = 40;       
 var canvasID = "";
-
-
 
 function createGraphics(_canvasID){
     canvasID = _canvasID;
@@ -12,33 +17,24 @@ function createGraphics(_canvasID){
     document.getElementById(canvasID).clientWidth = blockWidht*numberofBlocksInX;
     document.getElementById(canvasID).height = blockWidht*numberOfBlocksInY; 
 }
-
+// Coords are in blocks, NOT pixels!
 function drawBlock(x,y,color){
-
-    var c=document.getElementById(canvasID);
-    var ctx=c.getContext("2d"); 
-    ctx.fillStyle = color;
-    ctx.fillRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
-    //ctx.strokeRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
-
+    if (valid_X(x) && valid_Y(y)){
+        var c=document.getElementById(canvasID);
+        var ctx=c.getContext("2d"); 
+        ctx.fillStyle = color;
+        ctx.fillRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
+        ctx.strokeStyle = 0xFFF;
+        ctx.strokeRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
+    }else{
+        //illegal coordinates
+    }
 }
 
+function valid_X(x){
+    return x >= 0 && x < numberofBlocksInX;
+}
 
-/*
-
-var c=document.getElementById("mainCanvas");
-var ctx=c.getContext("2d"); 
-
-ctx.beginPath(); 
-ctx.lineWidth="1";
-ctx.strokeStyle="black"; // Green path
-ctx.moveTo(0,blockWidht);
-ctx.lineTo(blockWidht,blockWidht);
-ctx.lineTo(blockWidht,0);
-ctx.lineTo(0,0);
-ctx.stroke(); // Draw it
-ctx.fillstyle = 0xFFFF;
-ctx.fill();
-*/
-
-
+function valid_Y(y){
+    return y >= 0 && y < numberOfBlocksInY;
+}

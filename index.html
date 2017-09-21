@@ -2,22 +2,43 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Tetris, like ur mom m8</title>
-    <style> 
-    *{ 
+    <title>Tetris, in construction...</title>
+    <style>
+    * { 
         padding: 0; margin: 0;
         }
+    canvas { background: rgba(226, 226, 226, 0.66); display: block; margin: 0 auto; border: 2 solid black;}
     </style>
-    <script src="graphics.js"></script>
 </head>
 <body>
-        <canvas id="canvasMain"  style="border:1px solid #000000;"></canvas>
-    <script>
-        createGraphics("canvasMain");
-        drawBlock(1,1,5);
-        drawBlock(2,2,5);
-        drawBlock(3,3,5);
-        drawBlock(4,4,5);
-    </script>
+
+<canvas id="myCanvas" width="300" height="660"></canvas>
+
+<script>
+
+   
+
+    // Tetrismap 10x22 celler, två högsta gömda
+
+    var cell = {filled: false, color: "transparent", x, y};
+    var map = [];
+
+    function update(){
+        
+
+    }
+/*
+    function createMap(){
+        for(r=0; r<22; r++){
+            map[r] = [];
+                for(c=0; c<10; c++){
+                    map[r][c] = new cell;
+                }
+        }
+
+    }
+*/
+alert("HATA GIUAS");
+</script>
 </body>
 </html>
