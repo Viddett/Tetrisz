@@ -3,34 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Tetris, like ur mom m8</title>
-    <style>* { padding: 0; margin: 0;}</style>
+    <style> 
+    *{ 
+        padding: 0; margin: 0;
+        }
+    
+    </style>
+    <script src="graphics.js"></script>
 </head>
 <body>
 
-        <canvas id="mainCanvas" width="400" height="600" style="border:1px solid #000000;">
-        </canvas>
-<script>
-    const numberofBlocksInX = 10;
-    const numberOfBlocksInY = 22;
-    const blockWidht = 40;  //pxs
+        
+    <script>
 
-    var c=document.getElementById("mainCanvas");
-    var ctx=c.getContext("2d"); 
+        createGraphics();
 
-    ctx.beginPath(); 
-    ctx.lineWidth="1";
-    ctx.strokeStyle="black"; // Green path
-    ctx.moveTo(0,blockWidht);
-    ctx.lineTo(blockWidht,blockWidht);
-    ctx.lineTo(blockWidht,0);
-    ctx.lineTo(0,0);
-    ctx.stroke(); // Draw it
-    ctx.fill("Blue");
-
-
-
-
-
-</script>
+    </script>
 </body>
 </html>
