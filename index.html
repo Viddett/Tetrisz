@@ -9,21 +9,19 @@
 </head>
 <body>
 
-<canvas id="myCanvas" width="480" height="320"></canvas>
+<canvas id="myCanvas" width="300" height="660"></canvas>
 
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     // Tetrismap 10x22 celler, två högsta gömda
 
-    var block;
     var cell = {filled: false, color: "transparent", width: canvas.width/10, height: canvas.height/22, x, y};
-    var map = [][];
-
+    var map = [];
     createMap();
 
     function update(){
-
+        
 
     }
 
