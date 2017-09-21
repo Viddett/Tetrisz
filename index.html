@@ -27,9 +27,14 @@
     }
 
 
-    function newBlock(){
-        map[5][5].filled = true;
+    function fillBlock(r, c){
+        map[r][c].filled = true;
+        colorBlock(r, c);
     }    
+
+    function colorBlock(r, c){
+        map[r][c].color = 
+    }
 
     function createMap(){
         for(r=0; r<22; r++){
