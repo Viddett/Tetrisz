@@ -7,17 +7,17 @@
     *{ 
         padding: 0; margin: 0;
         }
-    
     </style>
     <script src="graphics.js"></script>
 </head>
 <body>
-
-        
+        <canvas id="canvasMain"  style="border:1px solid #000000;"></canvas>
     <script>
-
-        createGraphics();
-
+        createGraphics("canvasMain");
+        drawBlock(1,1,5);
+        drawBlock(2,2,5);
+        drawBlock(3,3,5);
+        drawBlock(4,4,5);
     </script>
 </body>
 </html>
