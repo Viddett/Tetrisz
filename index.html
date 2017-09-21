@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Tetris, under construction...</title>
+    <title>Tetris, in construction...</title>
     <style>* { padding: 0; margin: 0;}</style>
     <script src="js/phaser.min.js"></script>
 </head>
@@ -17,6 +17,17 @@
     var keyFlag = true;
     var gameSpeed = 10000;
 
+
+    var cell = {filled: false, color: "transparent", width: canvas.width/10, height: canvas.height/22, x, y};
+    var map = [][];
+    for(r=0; r<22; r++){
+        map[r] = [];
+        for(c=0; c<10; c++){
+            map[r][c] = new cell;
+        }
+    }
+    
+
     function preload(){
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.scale.pageAlignHorizontally = true;
@@ -26,11 +37,9 @@
     }
 
     function create(){
-        game.physics.startSystem(Phaser.Physics.ARCADE);
+
         block = game.add.sprite(150, 10, 'block');
         block.anchor.set(0);
-        game.physics.enable(block, Phaser.Physics.ARCADE);
-        block.body.collideWorldBounds = true;
         cursors = game.input.keyboard.createCursorKeys()
     }
 
