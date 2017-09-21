@@ -3,21 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <title>Tetris, in construction...</title>
-    <style>* { padding: 0; margin: 0;}</style>
-    <script src="js/phaser.min.js"></script>
+    <style>* { padding: 0; margin: 0;}
+    canvas { background: rgba(175, 175, 175, 0.68); display: block; margin: 0 auto;}
+    </style>
 </head>
 <body>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
 <script>
     var game = new Phaser.Game(300, 660, Phaser.AUTO, null, {preload: preload, create: create, update: update});
     // Tetrismap 10x22 celler, två högsta gömda
 
     var block;
-    var velocityY = 50;
-    var cursors;
-    var keyFlag = true;
-    var gameSpeed = 10000;
-
-
     var cell = {filled: false, color: "transparent", width: canvas.width/10, height: canvas.height/22, x, y};
     var map = [][];
     for(r=0; r<22; r++){
@@ -28,58 +26,22 @@
     }
     
 
+
+
     function preload(){
-        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        game.scale.pageAlignHorizontally = true;
-        game.scale.pageAlignVertically = true;
-        game.stage.backgroundColor = '#f2f2f2';
-        game.load.image('block', 'img/grey.png');
+    
+    
     }
 
     function create(){
 
-        block = game.add.sprite(150, 10, 'block');
-        block.anchor.set(0);
-        cursors = game.input.keyboard.createCursorKeys()
+
     }
 
     function update(){
-        //spawnBlock();
-        controlBlock();
 
-        window.setInterval(blockDown, gameSpeed);
-    }
-
-    function blockDown(){
-        block.y += 30;
-        
-    }
-
-    function controlBlock(){
-        
-        if(keyFlag){
-			if(cursors.left.isDown && block.x >= 10){
-				block.x -= 30;
-				keyFlag = false;
-			}
-			if(cursors.right.isDown && block.x <= 260){
-				block.x += 30;
-				keyFlag = false;
-			}
-			if(cursors.down.isDown){
-				block.y += 30;
-				keyFlag = false;
-			}
-        }
-
-        if (!cursors.left.isDown && !cursors.right.isDown && !cursors.down.isDown){keyFlag = true;}
-        
-    }
-
-    function spawnBlock(){
 
     }
-
 
 
 </script>
