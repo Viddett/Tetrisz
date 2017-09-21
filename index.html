@@ -3,8 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title>Tetris, in construction...</title>
-    <style>* { padding: 0; margin: 0;}
-    canvas { background: rgba(226, 226, 226, 0.66); display: block; margin: 0 auto; border: 2 solid black;}
+    <script src="graphics.js"></script>
+
+    <style>
+    * { 
+        padding: 0; margin: 0;
+    }
+    canvas { 
+        background: rgba(226, 226, 226, 0.66); display: block; margin: 0 auto; border: 2 solid black;
+    }
+
     </style>
 </head>
 <body>
@@ -12,13 +20,16 @@
 <canvas id="myCanvas" width="300" height="660"></canvas>
 
 <script>
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
     // Tetrismap 10x22 celler, två högsta gömda
 
-    var cell = {filled: false, color: "transparent", width: canvas.width/10, height: canvas.height/22, x, y};
-    var map = [];
-    createMap();
+    /*
+    var cell = {filled: false, color: "transparent", x, y};
+    var map = createMap();
+    */  
+
+    createGraphics("myCanvas");
+    drawBlock(1,1,0);
+
 
     function update(){
         
@@ -26,13 +37,14 @@
     }
 
     function createMap(){
+        result = [];
         for(r=0; r<22; r++){
-            map[r] = [];
+            result[r] = [];
                 for(c=0; c<10; c++){
-                    map[r][c] = new cell;
+                    result[r][c] = new cell;
                 }
         }
-
+        return result;
     }
 
 

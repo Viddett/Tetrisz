@@ -28,11 +28,11 @@ function drawBlock(x,y,color){
         ctx.strokeRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
     }else{
         //illegal coordinates
+        alert("Illeagal coord");
     }
 }
 
-<<<<<<< HEAD
-=======
+
 function valid_X(x){
     return x >= 0 && x < numberofBlocksInX;
 }
@@ -40,4 +40,3 @@ function valid_X(x){
 function valid_Y(y){
     return y >= 0 && y < numberOfBlocksInY;
 }
->>>>>>> EliasDevAndSwag
