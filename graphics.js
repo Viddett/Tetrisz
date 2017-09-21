@@ -23,22 +23,3 @@ function drawBlock(x,y,color){
 
 }
 
-
-/*
-
-var c=document.getElementById("mainCanvas");
-var ctx=c.getContext("2d"); 
-
-ctx.beginPath(); 
-ctx.lineWidth="1";
-ctx.strokeStyle="black"; // Green path
-ctx.moveTo(0,blockWidht);
-ctx.lineTo(blockWidht,blockWidht);
-ctx.lineTo(blockWidht,0);
-ctx.lineTo(0,0);
-ctx.stroke(); // Draw it
-ctx.fillstyle = 0xFFFF;
-ctx.fill();
-*/
-
-
