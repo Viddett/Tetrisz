@@ -12,34 +12,28 @@
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
 <script>
-    var game = new Phaser.Game(300, 660, Phaser.AUTO, null, {preload: preload, create: create, update: update});
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
     // Tetrismap 10x22 celler, två högsta gömda
 
     var block;
     var cell = {filled: false, color: "transparent", width: canvas.width/10, height: canvas.height/22, x, y};
     var map = [][];
-    for(r=0; r<22; r++){
-        map[r] = [];
-        for(c=0; c<10; c++){
-            map[r][c] = new cell;
-        }
-    }
-    
 
-
-
-    function preload(){
-    
-    
-    }
-
-    function create(){
-
-
-    }
+    createMap();
 
     function update(){
 
+
+    }
+
+    function createMap(){
+        for(r=0; r<22; r++){
+            map[r] = [];
+                for(c=0; c<10; c++){
+                    map[r][c] = new cell;
+                }
+        }
 
     }
 
