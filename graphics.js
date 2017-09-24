@@ -17,7 +17,7 @@ function createGraphics(_canvasID){
     document.getElementById(canvasID).clientWidth = blockWidht*numberofBlocksInX;
     document.getElementById(canvasID).height = blockWidht*numberOfBlocksInY;
 }
-// Coords are in blocks, NOT pixels!
+// coordinates are in blocks, NOT pixels!
 function drawBlock(x,y,color){
     if (valid_X(x) && valid_Y(y)){
         var c=document.getElementById(canvasID);
@@ -28,14 +28,10 @@ function drawBlock(x,y,color){
         ctx.strokeRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
     }else{
         //illegal coordinates
-        alert("Illeagal coord");
+        alert("Illegal coord");
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 function valid_X(x){
     return x >= 0 && x < numberofBlocksInX;
 }
