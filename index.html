@@ -6,11 +6,11 @@
     <script src="graphics.js"></script>
 
     <style>
-    * { 
+    * {
         padding: 0; margin: 0;
     }
-    canvas { 
-        background: rgba(226, 226, 226, 0.66); display: block; margin: 0 auto; border: 2 solid black;
+    canvas {
+        /*background: rgba(226, 226, 226, 0.66); display: block; margin: 0 auto; border: 2 solid black;*/
     }
 
     </style>
@@ -20,19 +20,33 @@
 <canvas id="myCanvas" width="300" height="660"></canvas>
 
 <script>
-    // Tetrismap 10x22 celler, två högsta gömda
 
-    /*
-    var cell = {filled: false, color: "transparent", x, y};
-    var map = createMap();
-    */  
+blockcolor = {
+  DARK_BLUE : "#4d4dff",
+  LIGHT_BLUE : "#66d9ff",
+  RED : "#ff6666",
+  YELLOW : "#ffff66",
+  PURPLE : "#d24dff",
+  GREEN : "#47d147",
+  BROEN : "#cc4400"
+}
 
-    createGraphics("myCanvas");
-    drawBlock(1,1,0);
+testDrawMap();
+console.log("Banan");
+clearAll();
+drawBlock(1,1,blockcolor.GREEN);
+    function testDrawMap(){
+        createGraphics("myCanvas");           //Must be called before using 'drawBlock()'
+        for(r=0; r<22; r++){
+                for(c=0; c<10; c++){
+                  drawBlock(c,r,blockcolor.RED);
+                }
+        }
+    }
+
 
 
     function update(){
-        
 
     }
 

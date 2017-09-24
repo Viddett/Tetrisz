@@ -13,8 +13,8 @@ var canvasID = "";
 
 function createGraphics(_canvasID){
     canvasID = _canvasID;
-    blockWidht = (screen.height * playFieldHeightPrecentage/100)/numberOfBlocksInY;
-    document.getElementById(canvasID).clientWidth = blockWidht*numberofBlocksInX;
+    blockWidht = (window.innerHeight * playFieldHeightPrecentage/100)/numberOfBlocksInY;
+    document.getElementById(canvasID).width = blockWidht*numberofBlocksInX;
     document.getElementById(canvasID).height = blockWidht*numberOfBlocksInY;
 }
 // coordinates are in blocks, NOT pixels!
@@ -24,12 +24,18 @@ function drawBlock(x,y,color){
         var ctx=c.getContext("2d");
         ctx.fillStyle = color;
         ctx.fillRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
-        ctx.strokeStyle = 0xFFF;
-        ctx.strokeRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
+        //ctx.strokeStyle = "#4d4d4d";
+        //ctx.strokeRect(x*blockWidht,y*blockWidht,blockWidht,blockWidht);
     }else{
         //illegal coordinates
         alert("Illegal coord");
     }
+}
+
+function clearAll(){
+  var c=document.getElementById(canvasID);
+  var ctx=c.getContext("2d");
+  ctx.clearRect(0,0,blockWidht*numberofBlocksInX,blockWidht*numberOfBlocksInY);
 }
 
 function valid_X(x){
